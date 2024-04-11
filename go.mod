@@ -1,4 +1,4 @@
-module duxgotest
+module dux-project
 
 go 1.18
 

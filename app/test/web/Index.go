@@ -2,16 +2,15 @@ package web
 
 import "github.com/labstack/echo/v4"
 
-// @RouteGroup(name = "xxxGroup", route = "/list")
-
-// xsdesad
 type Annotation struct {
 	Name  string
 	Route string
 	Func  string
 }
 
-// Index @Route(name = "xxx", route = "/")
+// @RouteGroup(name = "testGroup", route = "/list")
+
+// Index @Route(name = "test", route = "/test")
 func Index(ctx echo.Context) error {
 	return ctx.JSON(200, "dsadsad")
 }

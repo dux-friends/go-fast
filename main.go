@@ -1,7 +1,7 @@
 package main
 
 import (
-	"duxgotest/app/home"
+	"dux-project/app/home"
 	"embed"
 	dux "github.com/duxweb/go-fast"
 )
