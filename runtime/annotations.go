@@ -1,59 +1,30 @@
-package main
+package runtime
 
 import (
 	appHomeWeb "dux-project/app/home/web"
-	appTestWeb "dux-project/app/test/web"
+	"github.com/duxweb/go-fast/annotation"
 )
 
-type Annotation struct {
-	Name   string
-	Params map[string]any
-	Func   any
-}
-
-type File struct {
-	Name        string
-	Annotations []*Annotation
-}
-
-var Annotations = []*File{
+var Annotations = []*annotation.File{
 	{
 		Name: "dux-project/app/home/web",
-		Annotations: []*Annotation{
+		Annotations: []*annotation.Annotation{
 			{
 				Name: "RouteGroup",
 				Params: map[string]any{
-					"name":  "xxxGroup",
-					"route": "/list",
-				},
-			},
-			{
-				Name: "Route",
-				Params: map[string]any{
-					"name":  "xxx",
-					"route": "/",
-				},
-				Func: appHomeWeb.Index,
-			},
-		},
-	},
-	{
-		Name: "dux-project/app/test/web",
-		Annotations: []*Annotation{
-			{
-				Name: "RouteGroup",
-				Params: map[string]any{
-					"name":  "testGroup",
-					"route": "/list",
-				},
-			},
-			{
-				Name: "Route",
-				Params: map[string]any{
-					"name":  "test",
+					"app":   "web",
+					"name":  "text",
 					"route": "/test",
 				},
-				Func: appTestWeb.Index,
+			},
+			{
+				Name: "Route",
+				Params: map[string]any{
+					"method": "GET",
+					"name":   "index",
+					"route":  "/",
+				},
+				Func: appHomeWeb.Index,
 			},
 		},
 	},

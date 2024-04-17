@@ -2,6 +2,7 @@ package main
 
 import (
 	"dux-project/app/home"
+	"dux-project/runtime"
 	"embed"
 	dux "github.com/duxweb/go-fast"
 )
@@ -13,7 +14,7 @@ func main() {
 
 	// 创建框架服务
 	app := dux.New()
-
+	app.RegisterAnnotations(runtime.Annotations)
 	app.RegisterApp(home.App)
 
 	app.Run()

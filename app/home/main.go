@@ -13,8 +13,6 @@ var config = struct {
 func App() {
 	app.Register(&app.Config{
 		Name:     "home",
-		Title:    "演示",
-		Desc:     "这是一个演示应用",
 		Config:   &config,
 		Init:     Init,
 		Register: Register,
@@ -22,14 +20,13 @@ func App() {
 }
 
 func Init() {
-	route.Add("web", route.New(""))
+	route.Set("web", route.New(""))
 }
 
 func Register() {
 	group := route.Get("web")
-
 	group.Get("/test", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
-	}, "首页", "web.home")
+	}, "web.home")
 
 }
