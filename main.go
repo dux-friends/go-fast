@@ -14,6 +14,7 @@ func main() {
 
 	// 创建框架服务
 	app := dux.New()
+	app.SetDatabaseStatus(true)
 	app.RegisterAnnotations(runtime.Annotations)
 	app.RegisterApp(home.App)
 

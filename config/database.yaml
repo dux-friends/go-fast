@@ -1,10 +1,6 @@
 db:
-  dbname: duxgo
-  host: localhost
-  username: root
-  password: "root"
-  port: 3306
-  type: mysql
+  file: "./app.db"
+  type: sqlite
   maxIdleConns: 10
   maxOpenConns: 100
 mongoDB:
