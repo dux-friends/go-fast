@@ -15,8 +15,16 @@ func I18nHandler() echo.MiddlewareFunc {
 				accept = "en-US"
 			}
 			t, _, _ := language.ParseAcceptLanguage(accept)
+
+			var langTag language.Tag
+			if len(t) > 0 {
+				langTag = t[0]
+			} else {
+				langTag = language.English
+			}
+
 			c.Set("i18n", i18n.NewLocalizer(duxI18n.Bundle, accept))
-			c.Set("lang", t[0].String())
+			c.Set("lang", langTag.String())
 			return next(c)
 		}
 	}
