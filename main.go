@@ -2,8 +2,8 @@ package main
 
 import (
 	"dux-project/app/home"
-	"dux-project/runtime"
 	"embed"
+
 	dux "github.com/duxweb/go-fast"
 )
 
@@ -14,8 +14,7 @@ func main() {
 
 	// 创建框架服务
 	app := dux.New()
-	app.SetDatabaseStatus(true)
-	app.RegisterAnnotations(runtime.Annotations)
+	// dux.Dux 没有 SetDatabaseStatus 和 RegisterAnnotations 方法，去除相关调用
 	app.RegisterApp(home.App)
 
 	app.Run()
