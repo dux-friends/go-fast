@@ -1,100 +1,66 @@
-<p align="center">
-<a href="https://www.duxravel.com/">
-    <img src="https://github.com/duxphp/duxravel/blob/main/resources/image/watermark.png?raw=true" width="100" height="100">
-</a>
 
-<p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-lpha-red.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/duxweb/go-storage/blob/main/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-  </a>
-    <a title="Go Reference" target="_blank" href="https://pkg.go.dev"><img src="https://img.shields.io/github/go-mod/go-version/duxweb/go-storage"></a>
-</p>
-
-<p align="center"><code>DuxFast</code> 是一款基于 GoEcho 的快速开发框架，集成主流三方包，简单、易开发、高性能的集成框架。</p>
-
-
-
-# 💥 版本
-
-警告：该版本作为开发版，尚有功能正在开发中并有不可避免的 bug，请勿在正式环境中使用。
-
-# 🎯 特点
-
-- 📦 基于 GoEcho 的高性能 Web 框架。
-- 📚 整合 Gorm 作为主要数据库驱动，提供良好的数据库操作支持。
-- 🧭 自动注解，自动生成注解索引，用于路由、任务、事件等自动化处理。
-- 📡 不做过度封装，便于开发者灵活选择和随版本升级。
-- 🔧 集成各大流行包，并封装常用日志、异常、权限等工具包。
-- 📡 采用应用模块化设计，提高应用程序的可维护性和可扩展性。
-- 📡 统一注册应用入口，方便应用程序的整体架构和管理。
-- 🏷 开发命令助手与脚手架工具，提供基础的代码生成。
-
-
-#  ⚡ 快速开始
-
-```go
-package main
-
-import (
-	"github.com/duxweb/go-fast/app"
-	"project/app/home"
-)
-
-func main() {
-	dux := duxgo.New()
-	dux.RegisterApp(home.App)
-	dux.Run()
-}
-
+```
+   _____           ____ ____
+  / __  \__ ______/ ___/ __ \
+ / /_/ / /_/ /> </ (_ / /_/ /
+/_____/\_,__/_/\_\___/\____/  Example
 ```
 
 
-```go
-package home
+# 概述
+DuxGO 是一款基于 go-echo 框架整合常用的 ORM、日志、队列、缓存等 web 开发常用功能，提供了一个简单、易用、灵活的框架。
 
-import (
-	"github.com/duxweb/go-fast/app"
-	"github.com/duxweb/go-fast/route"
-	"github.com/labstack/echo/v4"
-)
+本示例集成了 duxgo 框架与 duxgo-ui UI扩展包与 duxgo-admin 后台管理包，本示例用于 duxgo 的基础使用示例。
 
-var config = struct {
-}{}
+# 依赖
 
-func App() {
-	app.Register(&app.Config{
-		Name:     "home",
-		Title:    "Example",
-		Desc:     "This is an example",
-		Config:   &config,
-		Init:     Init,
-		Register: Register,
-	})
-}
+- Go 1.18+
+- Mysql 5.7+
+- Redis 5.0+
 
-func Init() {
-	route.Add("web", route.New(""))
-}
+# 安装
 
-func Register() {
-	group := route.Get("web")
-	group.Get("/", func(c *echo.Context) error {
-		return c.String(200, "I'm a GET request!")
-	}, "web.home")
-
-}
-
-```
-
-#  ⚙ 安装
-
-请确保当前 Golang 环境版本高于 `1.18` 版本，建立项目目录并初始化。
+将该仓库代码导出到独立目录使用 go install 安装：
 
 ```sh
-go get github.com/duxweb/go-fast
+go install
 ```
 
-# 💡思想
+私有仓库访问请执行以下命令避开代理，内部成员请联系管理员 admin@duxphp.com 获取仓库权限：
 
-该框架遵循与 DuxLite 一致化架构设计，将各个功能模块应用化，并通过 `应用入口` 与 `事件调度` 进行高度解耦，并保证基础框架与系统必备最小化，避免大而全的臃肿框架设计。
+```sh
+go env -w GOPRIVATE=github.com/duxphp
+```
+
+# 使用方法
+
+## 1. 修改数据库配置
+
+```
+config/database.toml
+```
+
+## 2. 运行框架
+
+
+```go
+go run main.go
+```
+
+# 访问地址
+
+```
+0.0.0.0:8080
+```
+
+# 后台地址
+
+```
+0.0.0.0:8080/admin
+```
+
+# 讨论
+
+您可以暂时加入我们的 Duxravel 群进行讨论
+
+<img src="https://www.duxravel.com/assets/images/wechat-684dffdb33c2f67413bf3bdd162fc815.png" />

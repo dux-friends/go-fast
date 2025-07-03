@@ -1,0 +1,23 @@
+app:
+  baseurl: http://127.0.0.1:8080
+  safekey: ""
+cache:
+  size: 100
+jwt:
+  expired: 21600
+  renewal: 604800
+logger:
+  default:
+    level: debug
+    compress: false
+    maxAge: 365
+    maxBackups: 100
+    maxSize: 1
+  db:
+    level: debug
+  request:
+    level: debug
+server:
+  debug: true
+  port: 8900
+  timeout: 30
